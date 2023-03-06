@@ -231,7 +231,7 @@
             </header>
 
             <!--div class="page-heading">
-                <h3>Enlace Inmobiliario</h3>
+                <h3>Grupo DB</h3>
             </div-->
             <div class="page-content">
                 <section class="row">
@@ -327,7 +327,7 @@
                                     
                                     <div class="ms-3 name">
                                         <h5 class="font-bold">Bienvenido</h5>
-                                        <h6 class="text-muted mb-0">Enlace Inmobiliario</h6>
+                                        <h6 class="text-muted mb-0">Grupo DB</h6>
                                     </div>
                                 </div>
                             </div>
@@ -348,7 +348,7 @@
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p><b>&nbsp;Copyright&nbsp;&copy; Enlace Inmobiliario <script>document.write(new Date().getFullYear());</script></b></p>
+                        <p><b>&nbsp;Copyright&nbsp;&copy; Grupo DB <script>document.write(new Date().getFullYear());</script></b></p>
                     </div>
                     <!--div-- class="float-end">
                         <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
