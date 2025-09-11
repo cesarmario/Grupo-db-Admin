@@ -1,8 +1,8 @@
 <?PHP
-    session_start();
-    include('fn/login_ctrl.php');
-    include('fn/list_opciones.php');
-    include('fn/list_inmuebles.php');
+session_start();
+include('fn/login_ctrl.php');
+include('fn/list_opciones.php');
+include('fn/list_inmuebles.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -49,7 +49,7 @@
                                 <span>Inicio</span>
                             </a>
                         </li>
-                        
+
                         <li class="sidebar-item active has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-house"></i>
@@ -64,10 +64,10 @@
                                 </li>
                                 <li class="submenu-item ">
                                     <a href="pedidos.php">Pedidos</a>
-                                </li>                              
+                                </li>
                             </ul>
                         </li>
-                        
+
                         <li class="sidebar-item has-sub ">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-stack"></i>
@@ -82,35 +82,35 @@
                                 </li>
                                 <li class="submenu-item ">
                                     <a href="propiedades.php">Propiedades</a>
-                                </li>                                  
+                                </li>
                             </ul>
                         </li>
 
                         <!-- Seccion Administrativa: Solo se habilita si el ROL del Usuario es Administrador -->
-                        <?PHP if ($_SESSION['rolUsu'] =='1') { ?>
+                        <?PHP if ($_SESSION['rolUsu'] == '1') { ?>
                             <li class="sidebar-item  has-sub">
                                 <a href="#" class='sidebar-link'>
                                     <i class="bi bi-person-badge-fill"></i>
                                     <span>Permisos</span>
                                 </a>
                                 <ul class="submenu ">
-                                <li class="submenu-item ">
+                                    <li class="submenu-item ">
                                         <a href="usuarios.php">Usuarios</a>
-                                    </li>  
+                                    </li>
                                 </ul>
                             </li>
                         <?PHP } else { ?>
                             <li class="sidebar-item  has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i class="bi bi-person-badge-fill"></i>
-                                <span>Perfil</span>
-                            </a>
-                            <ul class="submenu ">
-                            <li class="submenu-item ">
-                                    <a href="usuario_abm.php?idUsuario=<?PHP echo $_SESSION['idUsu'];?>&abm=m">Mis Datos</a>
-                                </li>  
-                            </ul>
-                        </li>    
+                                <a href="#" class='sidebar-link'>
+                                    <i class="bi bi-person-badge-fill"></i>
+                                    <span>Perfil</span>
+                                </a>
+                                <ul class="submenu ">
+                                    <li class="submenu-item ">
+                                        <a href="usuario_abm.php?idUsuario=<?PHP echo $_SESSION['idUsu']; ?>&abm=m">Mis Datos</a>
+                                    </li>
+                                </ul>
+                            </li>
                         <?PHP } ?>
                         <!-- /Seccion Administrativa-->
 
@@ -153,7 +153,7 @@
                                         <li><a class="dropdown-item">No hay notificaciones!</a></li>
                                     </ul>
                                 </!li -->
-                            </ul> 
+                            </ul>
                             <div class="dropdown">
                                 <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="user-menu d-flex">
@@ -172,7 +172,7 @@
                                     <li>
                                         <h6 class="dropdown-header">Hola!</h6>
                                     </li>
-                                    <li><a class="dropdown-item" href="usuario_abm.php?idUsuario=<?PHP echo $_SESSION['idUsu'];?>&abm=m"><i class="icon-mid bi bi-person me-2"></i>
+                                    <li><a class="dropdown-item" href="usuario_abm.php?idUsuario=<?PHP echo $_SESSION['idUsu']; ?>&abm=m"><i class="icon-mid bi bi-person me-2"></i>
                                             Perfil</a></li>
                                     <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-wallet me-2"></i>
                                             Ayuda</a></li>
@@ -190,30 +190,42 @@
 
             <div class="page-content">
                 <section class="row">
-                    <div class="col-12 col-lg-12">                        
+                    <div class="col-12 col-lg-12">
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h4>Inmuebles</h4>
-                                    </div>                                     
+                                    </div>
                                     <div class="card-body">
                                         <div class="buttons">
                                             <a href="inmueble_abm.php?abm=a" class="btn btn-outline-success">Nuevo Inmueble</a>
+                                            <?PHP
+
+                                            if (isset($_REQUEST['baja'])) {
+                                                // Si recibo verbaja=1 muestro "Ver Activos"
+                                                echo '<a href="inmuebles.php" class="btn btn-outline-primary">Ver Activos</a>';
+                                            } else {
+                                                // Si no recibo nada muestro "Ver Bajas"
+                                                echo '<a href="inmuebles.php?baja=1" class="btn btn-outline-danger">Ver Bajas</a>';
+                                            }
+                                            ?>
                                         </div>
                                         <?PHP echo $listado; ?>
                                     </div>
                                 </div>
                             </div>
-                        </div>                        
-                    </div>                    
+                        </div>
+                    </div>
                 </section>
             </div>
 
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p>&nbsp;Copyright <b>&copy; Grupo DB <script>document.write(new Date().getFullYear());</script></b></p>
+                        <p>&nbsp;Copyright <b>&copy; Grupo DB <script>
+                                    document.write(new Date().getFullYear());
+                                </script></b></p>
                     </div>
                 </div>
             </footer>

@@ -5,7 +5,15 @@ if ($_SESSION['rolUsu'] != '1') {
 } else {
     $filtro = "";
 };
-$queryinmuebles = "SELECT * FROM vista_inmuebles WHERE baja != '1' ORDER BY fecha DESC";
+
+if (isset($_REQUEST['baja'])) {
+    $queryinmuebles = "SELECT * FROM vista_inmuebles WHERE baja = '1' ORDER BY fecha DESC";
+} else {
+    $queryinmuebles = "SELECT * FROM vista_inmuebles WHERE baja != '1' ORDER BY fecha DESC";
+}
+
+
+
 $rtsinmuebles = mysqli_query($conexion, $queryinmuebles);
 $listado = "<table class='table table-striped' id='table1'>";
 $listado .= "<thead>";
